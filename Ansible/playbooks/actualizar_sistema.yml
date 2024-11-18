@@ -1,0 +1,9 @@
+- name: Actualizar el sistema
+  hosts: all
+  become: true
+  tasks:
+    - name: Actualizar el sistema en Debian/Ubuntu
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_os_family == "Debian"

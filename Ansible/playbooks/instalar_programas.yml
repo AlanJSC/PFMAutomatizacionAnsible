@@ -1,0 +1,22 @@
+- name: Instalacion de LibreOffice, FileZilla y htop
+  hosts: all
+  become: true
+  tasks:
+    - name: Actualizar la caché de paquetes
+      apt:
+        update_cache: yes
+
+    - name: Instalar htop
+      apt:
+        name: htop
+        state: present
+
+    - name: Instalar FileZilla
+      apt:
+        name: filezilla
+        state: present
+
+    - name: Instalar LibreOffice
+      apt:
+        name: libreoffice
+        state: present

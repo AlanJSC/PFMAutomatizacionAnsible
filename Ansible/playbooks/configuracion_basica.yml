@@ -1,0 +1,21 @@
+- name: Configuración básica del sistema
+  hosts: all
+  become: true
+  tasks:
+    - name: Configurar zona horaria
+      timezone:
+        name: Etc/UTC
+
+    - name: Configurar locales
+      locale_gen:
+        name: en_US.UTF-8
+        state: present
+
+    - name: Instalar utilidades básicas
+      apt:
+        name:
+          - vim
+          - curl
+          - git
+          - net-tools
+        state: present
